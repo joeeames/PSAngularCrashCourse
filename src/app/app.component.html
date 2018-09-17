@@ -1,26 +1,21 @@
-<div class="container">
-  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <div class="nav">
-      <ul class="navbar-nav mr-auto">
-        <li class="navbar-brand">
-          
-      <i class="fas fa-weight"></i>
-        </li>
-      <li class="nav-item active">
-        <a href="" class="nav-link active">Home</a>
+  <div class="nav">
+    <ul class="navbar-nav mr-auto">
+      <li class="navbar-brand">
+        
+    <i class="fas fa-weight"></i>
       </li>
-      <li class="nav-item">
-        <a href="" class="nav-link active">Settings</a>
-      </li>
-    </ul>
-    </div>
-  </nav>
-  <div style="text-align:center">
-    <h1>
-      Welcome to {{ title }}!
-      <i class="fas fa-weight"></i>
-    </h1>
+    <li class="nav-item">
+      <a [routerLink]="['']" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/settings/basic']" class="nav-link ">Settings</a>
+    </li>
+  </ul>
   </div>
-</div>
+</nav>
+<main>
+  <router-outlet></router-outlet>
+</main>
 

@@ -1,3 +1,45 @@
-<p>
-  home works!
-</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Trends here</h1>
+  </div>
+</div>
+
+<table class="table container">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Weight</th>
+      <th scope="col">Body Fat %</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of entries">
+      <th scope="row">{{entry.id}}</th>
+      <td>{{entry.date}}</td>
+      <td>{{entry.weight}} lbs</td>
+      <td>{{entry.bodyfat | percent}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="container row">
+  <div class="col-sm">
+    <div class="card">
+      <div class="card-header text-left"><h5>New Weight Entry</h5></div>
+      <div class="card-body">
+        <form class="form-inline">
+          <label for="weight" class="sr-only">Name</label>
+          <input type="text" name="weight" id="weight" class="form-control my-1 mr-sm-2" placeholder="weight"> 
+
+          <label for="entryDate" class="sr-only">Name</label>
+          <input type="text" name="entryDate" id="entryDate" class="form-control my-1 mr-sm-2" placeholder="Date"> 
+
+          <button class="btn btn-primary my-1">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">&nbsp;</div>
+</div>
