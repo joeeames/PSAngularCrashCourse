@@ -7,11 +7,13 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import Routes from './routes';
+import { EntryDetailsComponent } from './entry-details/entry-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    EntryDetailsComponent,
   ],
   imports: [
     CommonModule,

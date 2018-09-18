@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WeightEntriesService } from '../weight-entries.service';
 
 @Component({
   selector: 'hm-home',
@@ -6,15 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  entries = [
-    {id:1,date:'1/1/2018',weight:130,bodyfat:.28},
-    {id:2,date:'1/10/2018',weight:128,bodyfat:.27}
-  ]
+  model;
 
-  constructor() { }
+  constructor(public entries: WeightEntriesService) { 
+    this.model = {
+      weight:null,
+      bodyfat:null,
+      date:new Date().toLocaleDateString()
+    }
+  }
 
   ngOnInit() {
 
   }
 
+  newEntry() {
+    console.log('here')
+    this.entries.addEntry(this.model)
+  }
 }

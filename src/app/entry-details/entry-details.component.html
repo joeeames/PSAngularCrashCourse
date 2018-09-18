@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table container">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Body Fat %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries.data">
+        <th scope="row">{{entry.id}}</th>
+        <td>{{entry.date}}</td>
+        <td>{{entry.weight}} lbs</td>
+        <td>{{entry.bodyfat | percent}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
