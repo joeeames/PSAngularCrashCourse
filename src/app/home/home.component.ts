@@ -22,7 +22,8 @@ export class HomeComponent implements OnInit {
   }
 
   newEntry() {
-    console.log('here')
-    this.entries.addEntry(this.model)
+    var e = Object.assign({}, this.model, {bodyfat: this.model.bodyfat / 100})
+
+    this.entries.addEntry(e)
   }
 }
