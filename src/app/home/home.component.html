@@ -1,6 +1,25 @@
 <div class="jumbotron">
   <div class="container">
     <h1>Trends here</h1>
+
+    <table class="table container">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Date</th>
+          <th scope="col">Weight</th>
+          <th scope="col">Body Fat %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let entry of entryService.entries | async">
+          <th scope="row">{{entry.id}}</th>
+          <td>{{entry.date | date}}</td>
+          <td>{{entry.weight}} lbs</td>
+          <td>{{entry.bodyfat | percent}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -9,25 +28,7 @@
 
 <div class="container row">
   <div class="col-sm">
-    <div class="card">
-      <div class="card-header text-left"><h5>New Weight Entry</h5></div>
-      <div class="card-body">
-        <form #entryForm="ngForm" class="form-inline">
-          <label for="weight" class="sr-only">Weight</label>
-          <input type="text" name="weight" id="weight" class="form-control my-1 mr-sm-2" 
-            autocomplete="off" placeholder="Weight" [(ngModel)]="model.weight"> 
-
-          <label for="weight" class="sr-only">Body Fat %</label>
-          <input type="text" name="weight" id="weight" autocomplete="off" class="form-control my-1 mr-sm-2" placeholder="Body Fat %" [(ngModel)]="model.bodyfat"> 
-
-          <label for="entryDate" class="sr-only">Date</label>
-          <input type="text" name="entryDate" id="entryDate" autocomplete="off" class="form-control my-1 mr-sm-2" placeholder="Date (mm/dd/yyyy)"
-            [(ngModel)]="model.date"> 
-
-          <button (click)="newEntry(); entryForm.reset()"  class="btn btn-primary my-1">Save</button>
-        </form>
-      </div>
-    </div>
+    <hm-new-weight-entry></hm-new-weight-entry>
   </div>
   <div class="col-sm">&nbsp;</div>
 </div>

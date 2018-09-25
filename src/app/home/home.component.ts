@@ -7,23 +7,13 @@ import { WeightEntriesService } from '../weight-entries.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  model;
 
-  constructor(public entries: WeightEntriesService) { 
-    this.model = {
-      weight:null,
-      bodyfat:null,
-      date:new Date().toLocaleDateString()
-    }
+  constructor(public entryService: WeightEntriesService) { 
   }
 
   ngOnInit() {
 
   }
 
-  newEntry() {
-    var e = Object.assign({}, this.model, {bodyfat: this.model.bodyfat / 100})
-
-    this.entries.addEntry(e)
-  }
+  
 }

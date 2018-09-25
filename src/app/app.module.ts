@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import Routes from './routes';
 import { EntryDetailsComponent } from './entry-details/entry-details.component';
+import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     EntryDetailsComponent,
+    NewWeightEntryComponent,
   ],
   imports: [
     CommonModule,

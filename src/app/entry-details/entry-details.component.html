@@ -9,12 +9,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of entries.data | async">
+      <tr *ngFor="let entry of entryService.entries | async">
         <th scope="row">{{entry.id}}</th>
-        <td>{{entry.date}}</td>
+        <td>{{entry.date | date}}</td>
         <td>{{entry.weight}} lbs</td>
         <td>{{entry.bodyfat | percent}}</td>
       </tr>
     </tbody>
   </table>
+
+  
+</div>
+<div class="container row">
+  <div class="col-sm">
+    <hm-new-weight-entry></hm-new-weight-entry>
+  </div>
+  <div class="col-sm">&nbsp;</div>
 </div>

@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Subject, of } from 'rxjs';
+import { Subject, of, BehaviorSubject, Observable } from 'rxjs';
+import { Entry } from './model/entry';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeightEntriesService {
-  privateData = [
-    {id:1,date:'1/1/2018',weight:130,bodyfat:.28},
-    {id:5,date:'1/10/2018',weight:128,bodyfat:.27}
+  private $entriesArray: Entry[] = [
+    {id:1,date:new Date('1/1/2018'),weight:130,bodyfat:.28},
+    {id:5,date:new Date('1/10/2018'),weight:128,bodyfat:.27}
   ]
-  data: any;
+  private $entries: BehaviorSubject<Entry[]>;
+  public entries: Observable<Entry[]>;
 
   constructor() {
-    this.data = of(this.privateData);
+    this.$entries = new BehaviorSubject(this.$entriesArray);
+    this.entries = this.$entries.asObservable();
   }
 
-
-  addEntry(entry) {
-    const newId = getMaxId(this.privateData) + 1;
-    // MAKE THIS UPDATE THE OBSERVABLE
-    this.privateData.push(Object.assign({id:newId}, entry));
+  addEntry(entry: Entry) {
+    const newId = getMaxId(this.$entriesArray) + 1;
+    const newEntry = Object.assign({ id: newId }, entry);
+    this.$entriesArray.push(newEntry);
+    this.$entries.next(this.$entriesArray);
   }
 
 
