@@ -1,31 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Subject, of, BehaviorSubject, Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 import { Entry } from './model/entry';
+
+const INITIAL_ENTRIES: Entry[] = [
+  {id:1,date:new Date('1/1/2018'),weight:130,bodyfat:.28},
+  {id:5,date:new Date('1/10/2018'),weight:128,bodyfat:.27}
+]
 
 @Injectable({
   providedIn: 'root'
 })
 export class WeightEntriesService {
-  private $entriesArray: Entry[] = [
-    {id:1,date:new Date('1/1/2018'),weight:130,bodyfat:.28},
-    {id:5,date:new Date('1/10/2018'),weight:128,bodyfat:.27}
-  ]
-  private $entries: BehaviorSubject<Entry[]>;
-  public entries: Observable<Entry[]>;
+  private 
+  private entriesSubject = new BehaviorSubject(INITIAL_ENTRIES);
+  public entries$ = this.entriesSubject.asObservable();
 
   constructor() {
-    this.$entries = new BehaviorSubject(this.$entriesArray);
-    this.entries = this.$entries.asObservable();
   }
 
   addEntry(entry: Entry) {
-    const newId = getMaxId(this.$entriesArray) + 1;
-    const newEntry = Object.assign({ id: newId }, entry);
-    this.$entriesArray.push(newEntry);
-    this.$entries.next(this.$entriesArray);
+    this.entries$.pipe(
+      map((entries) => {
+        const newId = getMaxId(entries) + 1;
+        return [...entries, { ...entry, id: newId }]
+      }),
+      take(1)
+    ).subscribe();
+
+    const newId = getMaxId(this.entriesArray) + 1;
+    this.entriesArray.push({ ...entry, id: newId });
+    this.entriesSubject.next(this.entriesArray);
   }
-
-
 
 }
 
