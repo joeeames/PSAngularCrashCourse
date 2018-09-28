@@ -9,23 +9,14 @@ import { Entry } from '../model/entry';
 })
 export class EntryDetailsComponent implements OnInit {
   data: any;
+  sortedEntries: Entry[];
 
   constructor(public entryService: WeightEntriesService) {
   }
 
   ngOnInit() {
-    this.entryService.entries.subscribe((d:Entry[]) => {
-      this.data = d.sort((a, b) => {
-        // let da = new Date(a.date);
-        // const db = new Date(b.date);
-        if(a.date > b.date) {
-          return 1;
-        } else if (a.date.getTime() == b.date.getTime()) {
-          return 0;
-        } else {
-          return -1
-        }
-      })
+    this.entryService.entries$.subscribe(() => {
+      console.log(1)
     })
   }
 

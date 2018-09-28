@@ -17,7 +17,7 @@
 
       
 
-      <button (click)="createEntry(); resetForm(); weightInput.focus()"  class="btn btn-primary my-1" [disabled]="!entryForm.form.valid">Save</button>
+      <button (click)="createEntry(); weightInput.focus(); resetForm(); "  class="btn btn-primary my-1" [disabled]="!entryForm.form.valid">Save</button>
       
     </form>
   </div>

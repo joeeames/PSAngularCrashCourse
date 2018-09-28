@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of entryService.entries | async">
+      <tr *ngFor="let entry of entryService.sortedEntries$ | async">
         <th scope="row">{{entry.id}}</th>
         <td>{{entry.date | date}}</td>
         <td>{{entry.weight}} lbs</td>

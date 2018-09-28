@@ -33,11 +33,8 @@ export class NewWeightEntryComponent implements OnInit {
 
   resetForm() {
     this.model = {
-      // weight:undefined,
-      // bodyfat:undefined,
       date:new Date().toLocaleDateString()
     }
-
   }
 
 }

@@ -1,27 +1,31 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>Trends here</h1>
+    <h1>Your Recent Entries</h1>
+    
+    <div (click)="toggleBodyFat()" style="cursor:pointer" class="my-sm-3" [ngClass]="{'redtext':!showBodyFat}">
+    Show Body Fat <i class="fas fa-percent" ></i>
+    </div>
 
     <table class="table container">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Date</th>
           <th scope="col">Weight</th>
-          <th scope="col">Body Fat %</th>
+          <th [hidden]="!showBodyFat" scope="col">Body Fat %</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let entry of entryService.entries | async">
-          <th scope="row">{{entry.id}}</th>
+        <tr *ngFor="let entry of entryService.top3SortedEntries$ | async">
           <td>{{entry.date | date}}</td>
           <td>{{entry.weight}} lbs</td>
-          <td>{{entry.bodyfat | percent}}</td>
+          <td [hidden]="!showBodyFat">{{entry.bodyfat | percent}}</td>
         </tr>
       </tbody>
     </table>
   </div>
+  
 </div>
+
 
 
 
