@@ -24,7 +24,16 @@
   </div>
 </nav>
 <main>
-  <hm-home [bodyFatVisible]="showBodyFat" [data]="entries" (deleteRow)="deleteRow($event)"></hm-home>
+  <hm-home [bodyFatVisible]="showBodyFat" [data]="entries" (deleteRow)="deleteEntry($event)"></hm-home>
   <!-- <router-outlet></router-outlet> -->
 </main>
+
+<hm-confirm-modal (yes)="deleteRowConfirmed()">
+  <div title>
+      <i class="fas fa-trash-alt"></i> Confirm 
+  </div>
+  <div body>
+  Are you sure you want to delete the entry from {{entryToDelete?.date | date}}?
+  </div>
+</hm-confirm-modal>
 

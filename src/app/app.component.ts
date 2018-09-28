@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Entry } from './model/entry';
+declare var $;
 
 @Component({
   selector: 'hm-root',
@@ -16,14 +17,26 @@ export class AppComponent {
     {id:6,date:new Date('12/1/1995'),weight:161,bodyfat:.18},
   ]
   showBodyFat = true;
+  entryToDelete: Entry;
+
   toggleBodyFat() {
     this.showBodyFat = !this.showBodyFat;
     
   }
   
-  deleteRow(row) {
+  deleteEntry(entry) {
+    this.entryToDelete = entry;
+    this.showModal();
+    
+  }
+
+  deleteRowConfirmed() {
     this.entries = this.entries.filter(r => {
-      return r.id !== row.id
+      return r.id !== this.entryToDelete.id
     })
+  }
+
+  showModal() {
+    $('#exampleModal').modal()
   }
 }

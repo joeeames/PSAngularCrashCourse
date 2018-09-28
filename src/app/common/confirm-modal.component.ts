@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Entry } from '../model/entry';
 
 @Component({
   selector: 'hm-confirm-modal',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./confirm-modal.component.css']
 })
 export class ConfirmModalComponent implements OnInit {
+  @Output() yes = new EventEmitter();
+  @Output() no = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  yesHandler() {
+    this.yes.emit()
+  }
+
+  noHandler() {
+    this.no.emit()
   }
 
 }
