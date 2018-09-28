@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
+import { Entry } from '../model/entry';
 
 @Component({
   selector: 'hm-home',
@@ -7,24 +8,20 @@ import { WeightEntriesService } from '../weight-entries.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  showBodyFat: boolean;
-  toggleClass:string = "";
+  @Input() bodyFatVisible: boolean;
+  @Input('data') entries: Entry[];
+  @Output() deleteRow = new EventEmitter<Entry>();
 
   constructor(public entryService: WeightEntriesService) { 
-    this.showBodyFat = true;
   }
 
   ngOnInit() {
     
   }
 
-  toggleBodyFat() {
-    this.showBodyFat = !this.showBodyFat;
-    if(this.showBodyFat) {
-      this.toggleClass = ""
-    } else {
-      this.toggleClass = "redtext";
-    }
+  delete(entry) {
+    this.deleteRow.emit(entry);
   }
+ 
   
 }

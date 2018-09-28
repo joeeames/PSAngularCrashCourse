@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import Routes from './routes';
 import { EntryDetailsComponent } from './entry-details/entry-details.component';
 import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
+import { ConfirmModalComponent } from './common/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.com
     HomeComponent,
     EntryDetailsComponent,
     NewWeightEntryComponent,
+    ConfirmModalComponent,
   ],
   imports: [
     CommonModule,
