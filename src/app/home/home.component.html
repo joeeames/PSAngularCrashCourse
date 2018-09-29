@@ -2,18 +2,20 @@
   <div class="container">
     <h1>Your Recent Entries</h1>
     
-    {{bodyFatVisible}}
-
     <table class="table container">
       <thead>
         <tr>
+          <th></th>
           <th scope="col">Date</th>
           <th scope="col">Weight</th>
           <th [hidden]="!bodyFatVisible" scope="col">Body Fat %</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let entry of entries" (click)="delete(entry)">
+        <tr *ngFor="let entry of entries" >
+          <td style="width:20px;">
+            <span class="deleteIcon" (click)="delete(entry)"><i class="fas fa-trash" ></i></span>
+          </td>
           <td>{{entry.date | date}}</td>
           <td>{{entry.weight}} lbs</td>
           <td [hidden]="!bodyFatVisible">{{entry.bodyfat | percent}}</td>
