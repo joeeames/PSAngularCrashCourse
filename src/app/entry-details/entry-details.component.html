@@ -2,7 +2,6 @@
   <table class="table container">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Date</th>
         <th scope="col">Weight</th>
         <th scope="col">Body Fat %</th>
@@ -10,7 +9,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let entry of entryService.sortedEntries$ | async">
-        <th scope="row">{{entry.id}}</th>
         <td>{{entry.date | date}}</td>
         <td>{{entry.weight}} lbs</td>
         <td>{{entry.bodyfat | percent}}</td>

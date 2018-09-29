@@ -1,24 +1,26 @@
 <div class="jumbotron">
   <div class="container">
     <h1>Your Recent Entries</h1>
-    
+    <button class="btn btn-secondary" (click)="toggleBodyFat()" [ngClass]="{'redtext':!showBodyFat}">
+        <i class="fas fa-percent" ></i>
+      </button>
     <table class="table container">
       <thead>
         <tr>
           <th></th>
           <th scope="col">Date</th>
           <th scope="col">Weight</th>
-          <th [hidden]="!bodyFatVisible" scope="col">Body Fat %</th>
+          <th [hidden]="!showBodyFat" scope="col">Body Fat %</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let entry of entries" >
+        <tr *ngFor="let entry of entryService.top3SortedEntries$ | async" >
           <td style="width:20px;">
-            <span class="deleteIcon" (click)="delete(entry)"><i class="fas fa-trash" ></i></span>
+            <span class="deleteIcon" (click)="deleteEntry(entry)"><i class="fas fa-trash" ></i></span>
           </td>
           <td>{{entry.date | date}}</td>
           <td>{{entry.weight}} lbs</td>
-          <td [hidden]="!bodyFatVisible">{{entry.bodyfat | percent}}</td>
+          <td [hidden]="!showBodyFat">{{entry.bodyfat | percent}}</td>
         </tr>
       </tbody>
     </table>
@@ -36,3 +38,13 @@
   </div>
   <div class="col-sm">&nbsp;</div>
 </div>
+
+
+<hm-confirm-modal (yes)="deleteRowConfirmed()">
+  <div title>
+      <i class="fas fa-trash-alt"></i> Confirm 
+  </div>
+  <div body>
+  Are you sure you want to delete the entry from {{entryToDelete?.date | date}}?
+  </div>
+</hm-confirm-modal>

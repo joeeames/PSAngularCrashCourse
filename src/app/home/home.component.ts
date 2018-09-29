@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { Entry } from '../model/entry';
+declare var $;
 
 @Component({
   selector: 'hm-home',
@@ -8,9 +9,8 @@ import { Entry } from '../model/entry';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @Input() bodyFatVisible: boolean;
-  @Input('data') entries: Entry[];
-  @Output() deleteRow = new EventEmitter<Entry>();
+  showBodyFat = true;
+  entryToDelete: Entry;
 
   constructor(public entryService: WeightEntriesService) { 
   }
@@ -19,9 +19,23 @@ export class HomeComponent implements OnInit {
     
   }
 
-  delete(entry) {
-    this.deleteRow.emit(entry);
+  toggleBodyFat() {
+    this.showBodyFat = !this.showBodyFat;
+    
   }
- 
+  
+  deleteEntry(entry) {
+    this.entryToDelete = entry;
+    this.showModal();
+    
+  }
+
+  deleteRowConfirmed() {
+    this.entryService.deleteEntry(this.entryToDelete);
+  }
+
+  showModal() {
+    $('#exampleModal').modal()
+  }
   
 }

@@ -6,7 +6,7 @@
         
     <i class="fas fa-weight"></i>
       </li>
-    <!-- <li class="nav-item">
+    <li class="nav-item">
       <a [routerLink]="['']" class="nav-link">Home</a>
     </li>
     <li class="nav-item">
@@ -14,26 +14,12 @@
     </li>
     <li class="nav-item">
       <a [routerLink]="['/entries']" class="nav-link ">Entries</a>
-    </li> -->
-    <li  class="nav-item">
-      <a (click)="toggleBodyFat()" class="nav-link" [ngClass]="{'redtext':!showBodyFat}">
-        <i class="fas fa-percent" ></i>
-      </a>
     </li>
   </ul>
   </div>
 </nav>
 <main>
-  <hm-home [bodyFatVisible]="showBodyFat" [data]="entries" (deleteRow)="deleteEntry($event)"></hm-home>
-  <!-- <router-outlet></router-outlet> -->
+  <router-outlet></router-outlet>
 </main>
 
-<hm-confirm-modal (yes)="deleteRowConfirmed()">
-  <div title>
-      <i class="fas fa-trash-alt"></i> Confirm 
-  </div>
-  <div body>
-  Are you sure you want to delete the entry from {{entryToDelete?.date | date}}?
-  </div>
-</hm-confirm-modal>
 

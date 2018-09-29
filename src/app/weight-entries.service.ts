@@ -23,7 +23,6 @@ export class WeightEntriesService {
   }
 
   addEntry(entry: Entry) {
-
     const newId = getMaxId(this.entriesArray) + 1;
     this.entriesArray = [...this.entriesArray, { ...entry, id: newId }];
     this.entriesSubject.next(this.entriesArray);
@@ -55,6 +54,13 @@ export class WeightEntriesService {
         }
       }).slice(d.length-3);
     }))
+  }
+
+  public deleteEntry(entry: Entry) {
+    this.entriesArray = this.entriesArray.filter(r => {
+      return r.id !== entry.id
+    })
+    this.entriesSubject.next(this.entriesArray);
   }
 
 }

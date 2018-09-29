@@ -5,3 +5,10 @@
 .deleteIcon:hover {
   color: #9e0707;
 }
+
+button.redtext:hover {
+  color: red;
+}
+button.redtext {
+  color: red;
+}

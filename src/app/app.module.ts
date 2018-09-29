@@ -23,7 +23,7 @@ import { ConfirmModalComponent } from './common/confirm-modal.component';
     CommonModule,
     BrowserModule,
     FormsModule,
-    // RouterModule.forRoot(Routes)
+    RouterModule.forRoot(Routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
