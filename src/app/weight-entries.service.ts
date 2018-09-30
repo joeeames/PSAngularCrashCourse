@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Subject, of, BehaviorSubject, Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Entry } from './model/entry';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class WeightEntriesService {
   private entriesSubject = new BehaviorSubject(this.entriesArray);
   public entries$ = this.entriesSubject.asObservable();
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   addEntry(entry: Entry) {
@@ -28,33 +29,45 @@ export class WeightEntriesService {
     this.entriesSubject.next(this.entriesArray);
   }
 
-  public get sortedEntries$() :Observable<Entry[]>  {
-    return this.entries$.pipe(map(d => {
-      return [...d].sort((a, b) => {
-        if(a.date > b.date) {
-          return 1;
-        } else if (a.date.getTime() == b.date.getTime()) {
-          return 0;
-        } else {
-          return -1
-        }
-      });
-    }))
+  public getStuff() {
+    console.log('hi');
+    return this.http.get('/api/entries')
   }
 
-  public get top3SortedEntries$() :Observable<Entry[]>  {
-    return this.entries$.pipe(map(d => {
-      return [...d].sort((a, b) => {
-        if(a.date > b.date) {
-          return 1;
-        } else if (a.date.getTime() == b.date.getTime()) {
-          return 0;
-        } else {
-          return -1
-        }
-      }).slice(d.length-3);
-    }))
-  }
+  public sortedEntries$ = this.http.get('/api/entries').pipe(
+    tap(d => {
+      console.log('http request', d);
+    })
+  );
+    // console.log('hi');
+  //   return this.entries$.pipe(map(d => {
+  //     return [...d].sort((a, b) => {
+  //       if(a.date > b.date) {
+  //         return 1;
+  //       } else if (a.date.getTime() == b.date.getTime()) {
+  //         return 0;
+  //       } else {
+  //         return -1
+  //       }
+  //     });
+  //   }),
+  //   tap(() => {
+  //     console.log('hi2');
+  //   })
+  //   );
+  // }
+
+  top3SortedEntries$ = this.entries$.pipe(map(d => {
+    return [...d].sort((a, b) => {
+      if(a.date > b.date) {
+        return 1;
+      } else if (a.date.getTime() == b.date.getTime()) {
+        return 0;
+      } else {
+        return -1
+      }
+    }).slice(d.length-3);
+  }))
 
   public deleteEntry(entry: Entry) {
     this.entriesArray = this.entriesArray.filter(r => {

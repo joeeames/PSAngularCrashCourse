@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { BasicSettingsComponent } from './basic-settings/basic-settings.component';
+import { CommunityComponent } from './community.component';
 
 const routes: Routes = [
-  {path: 'basic', component: BasicSettingsComponent }
+  {path: '', component: CommunityComponent }
 ];
 
 @NgModule({
@@ -12,6 +12,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [BasicSettingsComponent]
+  declarations: [CommunityComponent]
 })
-export class SettingsModule { }
+export class CommunityModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { Entry } from '../model/entry';
 declare var $;
