@@ -28,7 +28,9 @@ export class NewWeightEntryComponent implements OnInit {
         date: new Date(this.model.date)
       })
 
-    this.entries.addEntry(e)
+    this.entries.addEntry(e).subscribe((r) => {
+      console.log('entry added', r);
+    })
   }
 
   resetForm() {

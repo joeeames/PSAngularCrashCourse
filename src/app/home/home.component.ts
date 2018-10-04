@@ -12,11 +12,13 @@ export class HomeComponent implements OnInit {
   showBodyFat = true;
   entryToDelete: Entry;
 
+  sortedEntries$;
+
   constructor(public entryService: WeightEntriesService) { 
   }
 
   ngOnInit() {
-    
+    this.entryService.getEntries();
   }
 
   toggleBodyFat() {
