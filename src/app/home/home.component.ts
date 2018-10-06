@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { Entry } from '../model/entry';
-declare var $;
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'hm-home',
@@ -9,35 +9,22 @@ declare var $;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  showBodyFat = true;
-  entryToDelete: Entry;
 
-  sortedEntries$;
-
-  constructor(public entryService: WeightEntriesService) { 
+  constructor(public entryService: WeightEntriesService, 
+    public settingsService: SettingsService) { 
   }
 
   ngOnInit() {
     this.entryService.getEntries();
+    this.settingsService.getSettings();
+    this.settingsService.settings$
+      .subscribe(settings => {
+        this.showBodyFat = settings.trackBodyFat;
+      })
   }
 
-  toggleBodyFat() {
-    this.showBodyFat = !this.showBodyFat;
-    
-  }
-  
-  deleteEntry(entry) {
-    this.entryToDelete = entry;
-    this.showModal();
-    
+  deleteRow(e) {
+    this.entryService.deleteEntry(e);
   }
 
-  deleteRowConfirmed() {
-    this.entryService.deleteEntry(this.entryToDelete);
-  }
-
-  showModal() {
-    $('#exampleModal').modal()
-  }
-  
 }

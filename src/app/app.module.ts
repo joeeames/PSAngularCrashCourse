@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
 
@@ -12,6 +13,7 @@ import { EntryDetailsComponent } from './entry-details/entry-details.component';
 import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
 import { ConfirmModalComponent } from './common/confirm-modal.component';
 import { BasicSettingsComponent } from './settings/basic-settings/basic-settings.component';
+import { EntryListComponent } from './common/entry-list/entry-list.component';
 
 
 
@@ -23,12 +25,14 @@ import { BasicSettingsComponent } from './settings/basic-settings/basic-settings
     EntryDetailsComponent,
     NewWeightEntryComponent,
     ConfirmModalComponent,
-    BasicSettingsComponent
+    BasicSettingsComponent,
+    EntryListComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(Routes)
   ],

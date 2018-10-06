@@ -37,22 +37,65 @@
       "bodyfat": 0.18
     },
     {
-      "date": "2018-10-02T06:00:00.000Z",
-      "weight": "144",
-      "bodyfat": 0.12,
-      "id": 9
-    },
-    {
       "date": "2018-10-03T06:00:00.000Z",
       "weight": "144",
       "bodyfat": 0.11,
       "id": 10
     },
     {
-      "date": "2018-10-04T06:00:00.000Z",
-      "weight": "154",
-      "bodyfat": 0.12,
-      "id": 12
+      "date": "2018-09-05T06:00:00.000Z",
+      "weight": "123",
+      "bodyfat": 1.11,
+      "id": 13
+    },
+    {
+      "date": "2018-09-05T06:00:00.000Z",
+      "weight": "123",
+      "bodyfat": 1.11,
+      "id": 14
+    },
+    {
+      "date": "2018-09-05T06:00:00.000Z",
+      "weight": "111",
+      "bodyfat": 0.14,
+      "id": 15
+    },
+    {
+      "date": "2018-09-05T06:00:00.000Z",
+      "weight": "111",
+      "bodyfat": 0.14,
+      "id": 16
+    },
+    {
+      "date": "2018-10-01T06:00:00.000Z",
+      "weight": "121",
+      "bodyfat": 0.15,
+      "id": 17
+    }
+  ],
+  "settings": {
+    "trackBodyFat": false
+  },
+  "comments": [
+    {
+      "commenter": "Bob",
+      "comment": "Great job!!"
+    },
+    {
+      "commenter": "Alex",
+      "comment": "Your progress is inspiring!"
+    },
+    {
+      "commenter": "Sherry",
+      "comment": "Way to go so far!"
+    },
+    {
+      "commenter": "Nicole",
+      "comment": "Keep it up!"
+    },
+    {
+      "commenter": "John",
+      "comment": "How is the workout going?"
     }
   ]
 }

@@ -1,20 +1,8 @@
 <div class="container">
-  <table class="table container">
-    <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Weight</th>
-        <th scope="col">Body Fat %</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let entry of entryService.sortedEntries$ | async">
-        <td>{{entry.date | date}}</td>
-        <td>{{entry.weight}} lbs</td>
-        <td>{{entry.bodyfat | percent}}</td>
-      </tr>
-    </tbody>
-  </table>
+    <hm-entry-list 
+    [entries]="entryService.sortedEntries$"
+    (deleteEntry)="deleteRow($event)"
+    ></hm-entry-list>
 
   
 </div>

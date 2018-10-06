@@ -1,0 +1,7 @@
+.deleteIcon {
+  cursor:pointer
+}
+
+.deleteIcon:hover {
+  color: #9e0707;
+}

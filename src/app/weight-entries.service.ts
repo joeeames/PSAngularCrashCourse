@@ -27,9 +27,12 @@ export class WeightEntriesService {
     // for when this is local
     // entry.id = getMaxId(this.entriesArray) + 1;
     // this.entriesArray = [...this.entriesArray, { ...entry, id: newId }];
-    let post = this.http.post('/api/entries/', entry);
-    post.subscribe(() => { this.getEntries() });
-    return post;
+    return this.http.post('/api/entries/', entry)
+    .pipe(
+      tap(
+        () => { this.getEntries() }
+      )
+    )
   }
 
   public getEntries(): void {
@@ -42,7 +45,6 @@ export class WeightEntriesService {
       })
     ).subscribe(entries => {
       this.entriesArray = entries;
-      console.log('array', this.entriesArray);
       this.entriesSubject.next(this.entriesArray);
     });
   }

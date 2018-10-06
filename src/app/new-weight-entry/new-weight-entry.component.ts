@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { FormGroup, FormControl, ValidatorFn } from '@angular/forms';
+import { SettingsService } from '../settings.service';
 
 @Component({
   selector: 'hm-new-weight-entry',
@@ -12,13 +13,18 @@ export class NewWeightEntryComponent implements OnInit {
   entryForm: FormGroup;
   weight: FormControl;
   bodyfat: FormControl;
-  max
+  trackBodyFat: Boolean;
 
-  constructor(public entries: WeightEntriesService) { 
+  constructor(public entries: WeightEntriesService,
+    private settingsSvc: SettingsService) { 
   }
 
   ngOnInit() {
     this.resetForm();
+    this.settingsSvc.getSettings();
+    this.settingsSvc.settings$.subscribe(settings => {
+      this.trackBodyFat = settings.trackBodyFat;
+    })
   }
 
   createEntry() {
