@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="card">
+    <div *ngIf="identity.loggedIn" class="card-header text-left"><h5><i class="fas fa-sign-out-alt"></i> Logout</h5></div>
+    <div *ngIf="!identity.loggedIn" class="card-header text-left">
+      <h5><i class="fas fa-sign-in-alt"></i> Login </h5>
+    </div>
+    <div *ngIf="!identity.loggedIn" class="card-body">
+      <form #loginForm="ngForm" class="form-inline">
+        <label for="username" class="sr-only">Username</label>
+        <input type="text" name="username" id="username" class="form-control my-1 mr-sm-2" required #weightInput #weight="ngModel"
+          autocomplete="off" placeholder="username" [(ngModel)]="username"> 
+  
+        <button (click)="login(); username = ''"  class="btn btn-primary my-1" [disabled]="!loginForm.form.valid">Login</button>
+      </form>
+    </div>
+    <div *ngIf="identity.loggedIn" class="card-body">
+      <button (click)="logout()" class="btn btn-primary my-1" >Logout</button>
+    </div>
+  </div>
+</div>  

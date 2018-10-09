@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../settings.service';
-import { Settings } from '../../model/settings';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 

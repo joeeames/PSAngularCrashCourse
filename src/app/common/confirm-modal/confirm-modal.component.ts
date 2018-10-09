@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { Entry } from '../model/entry';
 
 @Component({
   selector: 'hm-confirm-modal',

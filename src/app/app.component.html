@@ -12,13 +12,16 @@
         <a [routerLink]="['/settings']" class="nav-link ">Settings</a>
       </li>
       <li class="nav-item">
-        <a [routerLink]="['/community']" class="nav-link ">Community</a>
-      </li>
-      <li class="nav-item">
         <a [routerLink]="['/entries']" class="nav-link ">Entries</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="loggedIn" class="nav-item">
         <a [routerLink]="['/community']" class="nav-link ">Community</a>
+      </li>
+      <li *ngIf="!loggedIn" class="nav-item">
+        <a [routerLink]="['/login']" class="nav-link ">Login</a>
+      </li>
+      <li *ngIf="loggedIn" class="nav-item">
+        <a [routerLink]="['/login']" class="nav-link ">Logout</a>
       </li>
     </ul>
   </div>

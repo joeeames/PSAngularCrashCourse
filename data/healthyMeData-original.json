@@ -9,5 +9,27 @@
   ],
   "settings": {
     "trackBodyFat": true
-  }
+  },
+  "comments": [
+    {
+      "commenter": "Bob",
+      "comment": "Great job!!"
+    },
+    {
+      "commenter": "Alex",
+      "comment": "Your progress is inspiring!"
+    },
+    {
+      "commenter": "Sherry",
+      "comment": "Way to go so far!"
+    },
+    {
+      "commenter": "Nicole",
+      "comment": "Keep it up!"
+    },
+    {
+      "commenter": "John",
+      "comment": "How is the workout going?"
+    }
+  ]
 }

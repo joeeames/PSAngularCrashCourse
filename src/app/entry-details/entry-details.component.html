@@ -1,14 +1,8 @@
-<div class="container">
-    <hm-entry-list 
-    [entries]="entryService.sortedEntries$"
-    (deleteEntry)="deleteRow($event)"
-    ></hm-entry-list>
-
-  
-</div>
-<div class="container row">
-  <div class="col-sm">
-    <hm-new-weight-entry></hm-new-weight-entry>
+<div class="card">
+    <div class="card-header text-left">
+      <h5>Entry {{ entry.date | date }}</h5>
+    </div>
+    <div class="card-body">
+      
+    </div>
   </div>
-  <div class="col-sm">&nbsp;</div>
-</div>

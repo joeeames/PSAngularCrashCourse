@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
-import { Entry } from '../model/entry';
 import { SettingsService } from '../settings.service';
+import { ActivatedRouteSnapshot, Router, ActivatedRoute} from '@angular/router';
+import { Entry } from '../model/entry';
 
 @Component({
   selector: 'hm-entry-details',
@@ -9,23 +10,24 @@ import { SettingsService } from '../settings.service';
   styleUrls: ['./entry-details.component.css']
 })
 export class EntryDetailsComponent implements OnInit {
-  showBodyFat: Boolean = true;
+  trackBodyFat: Boolean;
+  entry: Entry;
 
-  constructor(public entryService: WeightEntriesService,
-    private settingsService: SettingsService) {
+  constructor(public entries: WeightEntriesService,
+    private settingsSvc: SettingsService,
+    private router: ActivatedRoute
+    ) { 
   }
 
   ngOnInit() {
-    this.entryService.getEntries();
-    this.settingsService.getSettings();
-    this.settingsService.settings$
-      .subscribe(settings => {
-        this.showBodyFat = settings.trackBodyFat;
-      })
-  }
-
-  deleteRow(e) {
-    this.entryService.deleteEntry(e);
+    this.settingsSvc.getSettings();
+    this.settingsSvc.settings$.subscribe(settings => {
+      this.trackBodyFat = settings.trackBodyFat;
+    })
+    this.entries.getEntry(this.router.snapshot.params.id)
+    .subscribe(entry => {
+      this.entry = entry;
+    })
   }
 
 }

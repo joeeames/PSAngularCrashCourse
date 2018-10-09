@@ -2,18 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { Routes } from './routes';
-import { EntryDetailsComponent } from './entry-details/entry-details.component';
+import { AllEntriesComponent } from './all-entries/all-entries.component';
 import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
-import { ConfirmModalComponent } from './common/confirm-modal.component';
-import { BasicSettingsComponent } from './settings/basic-settings/basic-settings.component';
+import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
 import { EntryListComponent } from './common/entry-list/entry-list.component';
+import { LoginComponent } from './login/login.component';
+import { EntryDetailsComponent } from './entry-details/entry-details.component';
+import { CommunityComponent } from './community/community.component';
 
 
 
@@ -22,17 +23,18 @@ import { EntryListComponent } from './common/entry-list/entry-list.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    EntryDetailsComponent,
+    AllEntriesComponent,
     NewWeightEntryComponent,
     ConfirmModalComponent,
-    BasicSettingsComponent,
-    EntryListComponent
+    EntryListComponent,
+    LoginComponent,
+    EntryDetailsComponent,
+    CommunityComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(Routes)
   ],

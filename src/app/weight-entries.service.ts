@@ -74,6 +74,15 @@ export class WeightEntriesService {
       })
   }
 
+  public getEntry(id: Number) {
+    return this.http.get<Entry>('/api/entries/' + id).pipe(
+      map(e => {
+          e.date = new Date(e.date);
+          return e
+      })
+    )
+  }
+
 }
 
 function getMaxId(data) {

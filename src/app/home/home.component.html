@@ -2,6 +2,7 @@
   <div class="container">
     <h1>Your Recent Entries</h1>
     <hm-entry-list 
+      [showBodyFat]="trackBodyFat"
       [entries]="entryService.top3SortedEntries$"
       (deleteEntry)="deleteRow($event)"
       ></hm-entry-list>
@@ -17,3 +18,4 @@
   <div class="col-sm">&nbsp;</div>
 </div>
 
+<a [routerLink]="['/community']">Community</a>

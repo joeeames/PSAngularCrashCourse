@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommentsService } from './comments.service';
+import { IdentityService } from '../common/identity.service';
+import { Identity } from '../model/identity';
 
 @Component({
   selector: 'hm-community',
@@ -7,18 +9,20 @@ import { CommentsService } from './comments.service';
   styleUrls: ['./community.component.css']
 })
 export class CommunityComponent implements OnInit {
-    constructor(private commentsSvc: CommentsService) { }
+  identity: Identity;
+  
+  constructor(public commentsSvc: CommentsService,
+    private identitySvc: IdentityService) { }
 
   ngOnInit() {
     this.commentsSvc.getComments();
-    this.commentsSvc.latest10Comments$.subscribe(c => {
-      console.log('c', c);
+    this.identitySvc.identity$.subscribe(id => {
+      this.identity = id;
     })
   }
 
   newComment(inputBox) {
-    console.log(inputBox.value)
-    let newComment: any = {commenter: 'You', comment: inputBox.value};
+    let newComment: any = {commenter: this.identity.username, comment: inputBox.value};
     this.commentsSvc.addComment(newComment);
     inputBox.value = '';
   }

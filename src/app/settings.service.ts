@@ -19,12 +19,12 @@ export class SettingsService {
   }
 
   updateSettings(settings: Settings) : Observable<Object> {
-    let post = this.http.put<Settings>(url, settings);
-    post.subscribe((retval) => { 
+    let req = this.http.put<Settings>(url, settings);
+    req.subscribe((retval) => { 
       this.settings = retval;
       this.settingsSubject.next(this.settings);
     });
-    return post;
+    return req;
   }
 
   public getSettings(): void {

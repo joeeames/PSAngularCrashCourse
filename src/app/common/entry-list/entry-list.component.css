@@ -5,3 +5,11 @@
 .deleteIcon:hover {
   color: #9e0707;
 }
+
+.detailIcon {
+  cursor:pointer
+}
+
+.detailIcon:hover {
+  color: #dddb46;
+}

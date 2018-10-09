@@ -71,6 +71,24 @@
       "weight": "121",
       "bodyfat": 0.15,
       "id": 17
+    },
+    {
+      "date": "2018-10-06T06:00:00.000Z",
+      "weight": "115",
+      "bodyfat": null,
+      "id": 18
+    },
+    {
+      "date": "2018-09-06T06:00:00.000Z",
+      "weight": "121",
+      "bodyfat": null,
+      "id": 19
+    },
+    {
+      "date": "2018-10-06T06:00:00.000Z",
+      "weight": "121",
+      "bodyfat": null,
+      "id": 20
     }
   ],
   "settings": {
@@ -78,24 +96,49 @@
   },
   "comments": [
     {
+      "id": 0,
       "commenter": "Bob",
       "comment": "Great job!!"
     },
     {
+      "id": 1,
       "commenter": "Alex",
       "comment": "Your progress is inspiring!"
     },
     {
+      "id": 2,
       "commenter": "Sherry",
       "comment": "Way to go so far!"
     },
     {
+      "id": 3,
       "commenter": "Nicole",
       "comment": "Keep it up!"
     },
     {
+      "id": 4,
       "commenter": "John",
       "comment": "How is the workout going?"
+    },
+    {
+      "commenter": "joe",
+      "comment": "thanks",
+      "id": 5
+    },
+    {
+      "commenter": "joe",
+      "comment": "I've been working hard!",
+      "id": 6
+    },
+    {
+      "commenter": "joe",
+      "comment": "you rock too!",
+      "id": 7
+    },
+    {
+      "commenter": "asdf",
+      "comment": "asdf",
+      "id": 8
     }
   ]
 }

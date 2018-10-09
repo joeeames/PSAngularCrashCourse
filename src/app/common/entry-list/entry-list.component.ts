@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Entry } from '../../model/entry';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 declare var $;
 
 @Component({
@@ -13,9 +14,8 @@ export class EntryListComponent implements OnInit {
   @Input() entries: Observable<Entry[]>;
   @Input() showBodyFat: Boolean;
   entryToDelete: Entry;
-  // showBodyFat: Boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     
@@ -24,7 +24,10 @@ export class EntryListComponent implements OnInit {
   onDelete(entry) {
     this.entryToDelete = entry;
     this.showModal();
-    
+  }
+
+  onDetailClick(entry) {
+    this.router.navigate(['/entries/' + entry.id]);
   }
 
   deleteRowConfirmed() {
