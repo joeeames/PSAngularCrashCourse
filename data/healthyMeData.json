@@ -85,14 +85,14 @@
       "id": 19
     },
     {
-      "date": "2018-10-06T06:00:00.000Z",
-      "weight": "121",
-      "bodyfat": null,
-      "id": 20
+      "date": "2018-10-08T06:00:00.000Z",
+      "weight": "155",
+      "bodyfat": 0.11,
+      "id": 21
     }
   ],
   "settings": {
-    "trackBodyFat": false
+    "trackBodyFat": true
   },
   "comments": [
     {
@@ -139,6 +139,11 @@
       "commenter": "asdf",
       "comment": "asdf",
       "id": 8
+    },
+    {
+      "commenter": "joe",
+      "comment": "asdf",
+      "id": 9
     }
   ]
 }
