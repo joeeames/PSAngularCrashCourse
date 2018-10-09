@@ -14,7 +14,7 @@ export class EntryDetailsComponent implements OnInit {
   entry: Entry;
 
   constructor(public entries: WeightEntriesService,
-    private settingsSvc: SettingsService,
+    public settingsSvc: SettingsService,
     private router: ActivatedRoute
     ) { 
   }

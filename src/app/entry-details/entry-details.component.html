@@ -6,7 +6,7 @@
       <div>
         Weight: {{ entry?.weight }}
       </div>
-      <div>
+      <div *ngIf="trackBodyFat">
         Body Fat: {{ entry?.bodyfat | percent }}
       </div>
     </div>

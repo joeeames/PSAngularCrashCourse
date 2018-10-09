@@ -50,18 +50,6 @@
     },
     {
       "date": "2018-09-05T06:00:00.000Z",
-      "weight": "123",
-      "bodyfat": 1.11,
-      "id": 14
-    },
-    {
-      "date": "2018-09-05T06:00:00.000Z",
-      "weight": "111",
-      "bodyfat": 0.14,
-      "id": 15
-    },
-    {
-      "date": "2018-09-05T06:00:00.000Z",
       "weight": "111",
       "bodyfat": 0.14,
       "id": 16
@@ -92,7 +80,7 @@
     }
   ],
   "settings": {
-    "trackBodyFat": true
+    "trackBodyFat": false
   },
   "comments": [
     {
@@ -144,6 +132,11 @@
       "commenter": "joe",
       "comment": "asdf",
       "id": 9
+    },
+    {
+      "commenter": "joe",
+      "comment": "hooray!",
+      "id": 10
     }
   ]
 }
