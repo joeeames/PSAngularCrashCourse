@@ -35,48 +35,6 @@
       "date": "1995-12-01T07:00:00.000Z",
       "weight": 161,
       "bodyfat": 0.18
-    },
-    {
-      "date": "2018-10-03T06:00:00.000Z",
-      "weight": "144",
-      "bodyfat": 0.11,
-      "id": 10
-    },
-    {
-      "date": "2018-09-05T06:00:00.000Z",
-      "weight": "123",
-      "bodyfat": 1.11,
-      "id": 13
-    },
-    {
-      "date": "2018-09-05T06:00:00.000Z",
-      "weight": "111",
-      "bodyfat": 0.14,
-      "id": 16
-    },
-    {
-      "date": "2018-10-01T06:00:00.000Z",
-      "weight": "121",
-      "bodyfat": 0.15,
-      "id": 17
-    },
-    {
-      "date": "2018-10-06T06:00:00.000Z",
-      "weight": "115",
-      "bodyfat": null,
-      "id": 18
-    },
-    {
-      "date": "2018-09-06T06:00:00.000Z",
-      "weight": "121",
-      "bodyfat": null,
-      "id": 19
-    },
-    {
-      "date": "2018-10-08T06:00:00.000Z",
-      "weight": "155",
-      "bodyfat": 0.11,
-      "id": 21
     }
   ],
   "settings": {
@@ -107,36 +65,6 @@
       "id": 4,
       "commenter": "John",
       "comment": "How is the workout going?"
-    },
-    {
-      "commenter": "joe",
-      "comment": "thanks",
-      "id": 5
-    },
-    {
-      "commenter": "joe",
-      "comment": "I've been working hard!",
-      "id": 6
-    },
-    {
-      "commenter": "joe",
-      "comment": "you rock too!",
-      "id": 7
-    },
-    {
-      "commenter": "asdf",
-      "comment": "asdf",
-      "id": 8
-    },
-    {
-      "commenter": "joe",
-      "comment": "asdf",
-      "id": 9
-    },
-    {
-      "commenter": "joe",
-      "comment": "hooray!",
-      "id": 10
     }
   ]
 }
