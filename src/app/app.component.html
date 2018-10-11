@@ -6,28 +6,40 @@
         <i class="fas fa-weight"></i>
       </li>
       <li class="nav-item">
-        <a [routerLink]="['']" class="nav-link">Home</a>
+        <a class="nav-link">Home</a>
       </li>
       <li class="nav-item">
-        <a [routerLink]="['/settings']" class="nav-link ">Settings</a>
+        <a class="nav-link ">Settings</a>
       </li>
       <li class="nav-item">
-        <a [routerLink]="['/entries']" class="nav-link ">Entries</a>
+        <a class="nav-link ">Entries</a>
       </li>
       <li *ngIf="loggedIn" class="nav-item">
-        <a [routerLink]="['/community']" class="nav-link ">Community</a>
+        <a class="nav-link ">Community</a>
       </li>
-      <li *ngIf="!loggedIn" class="nav-item">
-        <a [routerLink]="['/login']" class="nav-link ">Login</a>
-      </li>
-      <li *ngIf="loggedIn" class="nav-item">
-        <a [routerLink]="['/login']" class="nav-link ">Logout</a>
+      <li class="nav-item">
+        <a class="nav-link ">Login</a>
       </li>
     </ul>
   </div>
 </nav>
 <main>
-  <router-outlet></router-outlet>
+  <table class="table container">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Body Fat %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Date</td>
+        <td>Weight</td>
+        <td >Body Fat %</td>
+      </tr>
+    </tbody>
+  </table>
 </main>
 
 

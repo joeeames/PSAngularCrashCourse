@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IdentityService } from './common/identity.service';
 
 
 @Component({
@@ -8,15 +7,9 @@ import { IdentityService } from './common/identity.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loggedIn: boolean = false;
-  username: string
-  constructor(private identitySvc: IdentityService) {}
+  constructor() {}
 
   ngOnInit() {
-    this.identitySvc.identity$.subscribe(id => {
-      this.loggedIn = id.loggedIn;
-      this.username = id.username;
-    })
   }
   
 }
