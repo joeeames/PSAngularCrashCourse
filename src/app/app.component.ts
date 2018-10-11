@@ -7,10 +7,13 @@ import { WeightEntriesService } from './weight-entries.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
   constructor(public entriesSvc: WeightEntriesService) {}
 
   ngOnInit() {
+  }
+
+  toggleBodyFat() {
+    console.log('body fat button clicked');
   }
   
 }
