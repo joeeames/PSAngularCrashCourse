@@ -39,10 +39,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>{{entriesSvc.sortedEntries[0].date | date}}</td>
-        <td>{{entriesSvc.sortedEntries[0].weight}}</td>
-        <td *ngIf="!showBodyFat">{{entriesSvc.sortedEntries[0].bodyfat | percent}}</td>
+      <tr *ngFor="let entry of entriesSvc.sortedEntries">
+        <td>{{entry.date | date}}</td>
+        <td>{{entry.weight}}</td>
+        <td *ngIf="!showBodyFat">{{entry.bodyfat | percent}}</td>
       </tr>
     </tbody>
   </table>
