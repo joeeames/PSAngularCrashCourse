@@ -25,7 +25,7 @@
 </nav>
 <main>
   <div class="container">
-    <button (click)="toggleBodyFat()" class="btn btn-primary  my-sm-5">
+    <button (click)="toggleBodyFat()" class="btn btn-primary  my-sm-5" [ngStyle]="{'color': toggleColor}">
       Show Body Fat
     </button>
   </div>
@@ -35,14 +35,14 @@
       <tr>
         <th scope="col">Date</th>
         <th scope="col">Weight</th>
-        <th scope="col">Body Fat %</th>
+        <th scope="col" [hidden]="!showBodyFat">Body Fat %</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>{{entriesSvc.sortedEntries[0].date | date}}</td>
         <td>{{entriesSvc.sortedEntries[0].weight}}</td>
-        <td>{{entriesSvc.sortedEntries[0].bodyfat | percent}}</td>
+        <td [hidden]="!showBodyFat">{{entriesSvc.sortedEntries[0].bodyfat | percent}}</td>
       </tr>
     </tbody>
   </table>
