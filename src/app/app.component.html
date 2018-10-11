@@ -34,9 +34,9 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{entriesSvc.sortedEntries[0].date}}</td>
+        <td>{{entriesSvc.sortedEntries[0].date | date}}</td>
         <td>{{entriesSvc.sortedEntries[0].weight}}</td>
-        <td>{{entriesSvc.sortedEntries[0].bodyfat}}</td>
+        <td>{{entriesSvc.sortedEntries[0].bodyfat | percent}}</td>
       </tr>
     </tbody>
   </table>
