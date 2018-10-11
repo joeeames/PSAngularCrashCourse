@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { entries } from './entrydata';
 
 @Component({
   selector: 'hm-root',
@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  entryList = entries;
+  
   constructor() {}
 
   ngOnInit() {
