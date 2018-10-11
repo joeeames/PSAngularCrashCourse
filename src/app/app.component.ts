@@ -8,7 +8,7 @@ import { WeightEntriesService } from './weight-entries.service';
 })
 export class AppComponent {
   showBodyFat = true;
-  toggleColor: string;
+  toggleClass: string;
 
   constructor(public entriesSvc: WeightEntriesService) {}
 
@@ -17,11 +17,7 @@ export class AppComponent {
 
   toggleBodyFat() {
     this.showBodyFat = !this.showBodyFat;
-    if(this.showBodyFat) {
-      this.toggleColor = null;
-    } else {
-      this.toggleColor = 'red';
-    }
   }
+ 
   
 }
