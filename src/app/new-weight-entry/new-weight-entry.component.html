@@ -14,8 +14,9 @@
         <label for="entryDate" class="sr-only">Date</label>
         <input type="text" name="entryDate" id="entryDate" autocomplete="off" class="form-control my-1 mr-sm-2" placeholder="Date (mm/dd/yyyy)" [(ngModel)]="model.date"
           > 
+        <button (click)="createEntry(); weightInput.focus(); resetForm()"  class="btn btn-primary my-1" >Save</button>
+
       </form>
-      <button (click)="createEntry(); weightInput.focus(); resetForm()"  class="btn btn-primary my-1" >Save</button>
 
     </div>
   </div>
