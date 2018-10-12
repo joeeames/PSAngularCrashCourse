@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'hm-new-weight-entry',
@@ -8,7 +9,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NewWeightEntryComponent implements OnInit {
   @Input() showBodyFat: boolean;
   @Output() create = new EventEmitter;
-  model: any = {};
+  entryForm = new FormGroup({
+    weight: new FormControl('', Validators.required),
+    date: new FormControl('', Validators.required),
+    bodyfat: new FormControl('', Validators.required),
+  });
 
   constructor() { 
   }
@@ -16,13 +21,14 @@ export class NewWeightEntryComponent implements OnInit {
   }
 
   createEntry() {
-    var newEvent = Object.assign({}, this.model, 
+    var newEvent = Object.assign({}, this.entryForm.value, 
       {
-        bodyfat: this.model.bodyfat / 100,
-        date: new Date(this.model.date)
+        bodyfat: this.entryForm.value.bodyfat / 100,
+        date: new Date(this.entryForm.value.date)
       })
 
-    this.create.emit(newEvent)
+    this.create.emit(newEvent);
+    this.entryForm.reset();
   }
 
 }
