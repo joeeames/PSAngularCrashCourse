@@ -15,7 +15,6 @@
         <input type="text" name="entryDate" id="entryDate" autocomplete="off" class="form-control my-1 mr-sm-2" placeholder="Date (mm/dd/yyyy)" formControlName="date"
           > 
         <button (click)="createEntry(); weightInput.focus(); "  class="btn btn-primary my-1" [disabled]="!entryForm.valid" >Save</button>
-        <!-- [disabled]="!entryForm.form.valid"  -->
       </form>
 
     </div>
