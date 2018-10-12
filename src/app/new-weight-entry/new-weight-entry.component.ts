@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'hm-new-weight-entry',
@@ -8,13 +7,12 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class NewWeightEntryComponent implements OnInit {
   @Input() showBodyFat: boolean;
-  @Output() create = new EventEmitter
-  model;
+  @Output() create = new EventEmitter;
+  model: any = {};
 
   constructor() { 
   }
   ngOnInit() {
-    this.resetForm();
   }
 
   createEntry() {
@@ -25,10 +23,6 @@ export class NewWeightEntryComponent implements OnInit {
       })
 
     this.create.emit(newEvent)
-  }
-
-  resetForm() {
-    this.model = {}
   }
 
 }
