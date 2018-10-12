@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
+import { Entry } from '../model/entry';
 
 @Component({
   selector: 'hm-home',
@@ -18,6 +19,10 @@ export class HomeComponent implements OnInit {
 
   toggleBodyFat() {
     this.showBodyFat = !this.showBodyFat;
+  }
+
+  createNewEntry(entry: Entry) {
+    this.entriesSvc.addEntry(entry)
   }
 
 }

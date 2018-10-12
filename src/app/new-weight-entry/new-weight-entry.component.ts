@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { WeightEntriesService } from '../weight-entries.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'hm-new-weight-entry',
@@ -7,14 +6,16 @@ import { WeightEntriesService } from '../weight-entries.service';
   styleUrls: ['./new-weight-entry.component.css']
 })
 export class NewWeightEntryComponent implements OnInit {
+  @Input() showBodyFat: boolean;
+  @Output() create = new EventEmitter
 
-  constructor(public entries: WeightEntriesService) { 
+  constructor() { 
   }
   ngOnInit() {
   }
 
   createEntry() {
-    this.entries.addEntry({id:-1,date: new Date('1/15/1996'), weight:110, bodyfat:0.35})
+     this.create.emit({id:-1,date: new Date('1/15/1996'), weight:110, bodyfat:0.35})
   }
 
 }
