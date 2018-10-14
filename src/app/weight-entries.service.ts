@@ -43,15 +43,15 @@ export class WeightEntriesService {
   )
 
   public addEntry(entry: Entry) {
-    // return this.http.post('/api/entries/', entry)
-    // .subscribe(() => { this.getEntries() })
+    return this.http.post('/api/entries/', entry)
+    .subscribe(() => { this.getEntries() })
   }
 
   public deleteEntry(entry: Entry) {
-    // this.http.delete('/api/entries/' + entry.id)
-    //   .subscribe(() => {
-    //     this.getEntries();
-    //   })
+    this.http.delete('/api/entries/' + entry.id)
+      .subscribe(() => {
+        this.getEntries();
+      })
   }
 
 }
