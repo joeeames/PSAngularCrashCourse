@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
 import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.comp
     HomeComponent,
     NewWeightEntryComponent,
     ConfirmModalComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.comp
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
+      { path: 'login', component: LoginComponent },
     ])
   ],
   providers: [],
