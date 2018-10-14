@@ -37,7 +37,7 @@ export class WeightEntriesService {
     this.entriesArray = [...this.entriesArray, { ...entry}];
     this.sortEntries();
   }
-  
+
   public deleteEntry(entry: Entry) {
     this.entriesArray = this.entriesArray.filter(current => {
       return current.id !== entry.id;

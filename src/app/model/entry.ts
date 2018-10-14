@@ -1,6 +1,6 @@
 export class Entry {
-  id: Number;
+  id: number;
   date: Date;
-  weight: Number;
-  bodyfat: Number;
-} 
+  weight: number;
+  bodyfat: number;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { Entry } from '../model/entry';
+
 declare var $;
 
 @Component({
@@ -9,12 +10,10 @@ declare var $;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
   showBodyFat = true;
-  toggleClass: string;
   entryToDelete: Entry;
 
-  constructor(public entriesSvc: WeightEntriesService) {}
+  constructor(public entriesSvc: WeightEntriesService) { }
 
   ngOnInit() {
   }
@@ -24,10 +23,10 @@ export class HomeComponent implements OnInit {
   }
 
   createNewEntry(entry: Entry) {
-    this.entriesSvc.addEntry(entry)
+    this.entriesSvc.addEntry(entry);
   }
 
-  onDelete(entry) {
+  onDelete(entry: Entry) {
     this.entryToDelete = entry;
     $('#exampleModal').modal();
   }

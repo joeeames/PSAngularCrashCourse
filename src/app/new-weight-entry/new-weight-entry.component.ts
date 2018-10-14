@@ -8,26 +8,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class NewWeightEntryComponent implements OnInit {
   @Input() showBodyFat: boolean;
-  @Output() create = new EventEmitter;
+  @Output() create = new EventEmitter();
   entryForm = new FormGroup({
     weight: new FormControl('', Validators.required),
     date: new FormControl('', Validators.required),
     bodyfat: new FormControl('', Validators.required),
-  });
+  })
 
-  constructor() { 
-  }
+  constructor() { }
+
   ngOnInit() {
   }
 
   createEntry() {
-    var newEvent = Object.assign({}, this.entryForm.value, 
+    let newEntry = Object.assign({}, this.entryForm.value, 
       {
         bodyfat: this.entryForm.value.bodyfat / 100,
         date: new Date(this.entryForm.value.date)
       })
 
-    this.create.emit(newEvent);
+    this.create.emit(newEntry);
     this.entryForm.reset();
   }
 

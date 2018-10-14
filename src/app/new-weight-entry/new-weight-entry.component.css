@@ -1,4 +1,4 @@
-.ng-valid[required], .ng-valid.required  {
+.ng-valid.ng-dirty  {
   border-left: 5px solid #42A948; /* green */
 }
 
