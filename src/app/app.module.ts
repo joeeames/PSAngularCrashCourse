@@ -38,6 +38,9 @@ import { CommunityGuard } from './community/community.guard';
         canActivate: [CommunityGuard],
         component: CommunityComponent 
       },
+      { path: 'settings', 
+        loadChildren: './settings/settings.module#SettingsModule'
+      }
     ])
   ],
   providers: [],

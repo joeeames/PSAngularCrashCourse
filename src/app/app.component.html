@@ -8,6 +8,9 @@
       <li class="nav-item">
         <a [routerLink]="['/home']" class="nav-link">Home</a>
       </li>
+      <li class="nav-item">
+        <a [routerLink]="['/settings']" class="nav-link">Settings</a>
+      </li>
       <li *ngIf="identitySvc.loggedIn" class="nav-item">
         <a [routerLink]="['/community']" class="nav-link ">Community</a>
       </li>  
