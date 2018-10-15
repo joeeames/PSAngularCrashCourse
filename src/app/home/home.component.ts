@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { Entry } from '../model/entry';
+import { Router } from '@angular/router';
 
 declare var $;
 
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   showBodyFat = true;
   entryToDelete: Entry;
 
-  constructor(public entriesSvc: WeightEntriesService) { }
+  constructor(public entriesSvc: WeightEntriesService, private router: Router) { }
 
   ngOnInit() {
     this.entriesSvc.getEntries();
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit {
   onDelete(entry: Entry) {
     this.entryToDelete = entry;
     $('#exampleModal').modal();
+  }
+
+  onDetailClick(entry) {
+    this.router.navigate(['/entries/' + entry.id]);
   }
 
   deleteEntry() {

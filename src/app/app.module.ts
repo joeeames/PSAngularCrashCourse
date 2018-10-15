@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.component';
 import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
 import { LoginComponent } from './login/login.component';
+import { EntryDetailsComponent } from './entry-details/entry-details.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoginComponent } from './login/login.component';
     NewWeightEntryComponent,
     ConfirmModalComponent,
     LoginComponent,
+    EntryDetailsComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { LoginComponent } from './login/login.component';
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'entries/:id', component: EntryDetailsComponent },
     ])
   ],
   providers: [],

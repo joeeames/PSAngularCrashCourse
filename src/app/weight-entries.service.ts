@@ -53,7 +53,6 @@ export class WeightEntriesService {
         this.getEntries();
       })
   }
-
 }
 
 function getMaxId(data) {
