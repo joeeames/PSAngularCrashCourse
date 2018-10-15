@@ -14,8 +14,7 @@ export class LoginComponent implements OnInit {
     username: new FormControl(''),
   })
 
-  constructor(public identitySvc: IdentityService,
-    private router: Router) { }
+  constructor(public identitySvc: IdentityService) { }
 
   ngOnInit() {
   }
