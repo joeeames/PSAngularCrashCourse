@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Healthy Me Community</h1>
+  <h3>Comments</h3>
+  <div>Bob said: Great job!!"</div>
+  <div>Alex said: Your progress is inspiring!"</div>
+  <div>Sherry said: Way to go so far!"</div>
+  <div>Nicole said: Keep it up!"</div>
+  <div>John said: How is the diet going?"</div>
+  <div class="my-5" >
+    <input type="text" placeholder="new comment">
+  </div>
+</div>
