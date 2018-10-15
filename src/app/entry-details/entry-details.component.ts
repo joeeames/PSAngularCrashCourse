@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeightEntriesService } from '../weight-entries.service';
 import { Entry } from '../model/entry';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'hm-entry-details',
@@ -10,16 +11,16 @@ import { Entry } from '../model/entry';
 export class EntryDetailsComponent implements OnInit {
   entry: Entry;
   
-  constructor(public entriesSvc: WeightEntriesService) { }
+  constructor(public entriesSvc: WeightEntriesService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let id = 1
+    let id = +this.route.snapshot.params.id;
     this.entriesSvc.getEntries();
     this.entriesSvc.sortedEntries$.subscribe(entries => {
       this.entry = entries.find(e => {
         return e.id === id;
       })
-      console.log('entry', this.entry);
     })
   }
 
