@@ -11,6 +11,8 @@ import { NewWeightEntryComponent } from './new-weight-entry/new-weight-entry.com
 import { ConfirmModalComponent } from './common/confirm-modal/confirm-modal.component';
 import { LoginComponent } from './login/login.component';
 import { EntryDetailsComponent } from './entry-details/entry-details.component';
+import { CommunityComponent } from './community/community.component';
+import { CommunityGuard } from './community/community.guard';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { EntryDetailsComponent } from './entry-details/entry-details.component';
     ConfirmModalComponent,
     LoginComponent,
     EntryDetailsComponent,
+    CommunityComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +34,10 @@ import { EntryDetailsComponent } from './entry-details/entry-details.component';
       { path: 'home', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'entries/:id', component: EntryDetailsComponent },
+      { path: 'community', 
+        canActivate: [CommunityGuard],
+        component: CommunityComponent 
+      },
     ])
   ],
   providers: [],
