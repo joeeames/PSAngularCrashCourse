@@ -20,7 +20,7 @@ export class WeightEntriesService {
         })
       }),
       map(entries => {
-        return [...entries].sort((a:Entry, b:Entry) => {
+        return entries.sort((a:Entry, b:Entry) => {
           if(a.date > b.date) {
             return 1;
           } else if (a.date.getTime() == b.date.getTime()) {
