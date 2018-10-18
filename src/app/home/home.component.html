@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let entry of entriesSvc.sortedEntries">
+    <tr *ngFor="let entry of entries">
       <td>{{entry.date | date}}</td>
       <td>{{entry.weight}} lbs</td>
       <td *ngIf="showBodyFat" >{{entry.bodyfat | percent}}</td>
