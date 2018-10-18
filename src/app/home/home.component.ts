@@ -10,13 +10,15 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
   showBodyFat = true;
-  entries$: Observable<Entry[]>;
+  entries: Entry[];
   
 
   constructor(public entriesSvc: WeightEntriesService) { }
 
   ngOnInit() {
-    this.entries$ = this.entriesSvc.getEntries()
+    this.entriesSvc.getEntries().subscribe(entries => {
+      this.entries = entries;
+    })
   }
 
   toggleBodyFat() {
@@ -24,8 +26,11 @@ export class HomeComponent implements OnInit {
   }
 
   createNewEntry(entry: Entry) {
-    this.entriesSvc.addEntry(entry);
-    this.entries$ = this.entriesSvc.getEntries()
+    this.entriesSvc.addEntry(entry).subscribe(() => {
+      this.entriesSvc.getEntries().subscribe(entries => {
+        this.entries = entries;
+      })
+    })
   }
 
 }

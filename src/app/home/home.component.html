@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let entry of entries$ | async">
+    <tr *ngFor="let entry of entries">
       <td style="width:20px;">
         <span class="deleteIcon" (click)="onDelete(entry)" ><i class="fas fa-trash" ></i></span>
       </td>

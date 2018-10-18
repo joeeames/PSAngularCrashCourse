@@ -18,18 +18,23 @@ export class WeightEntriesService {
           e.date = new Date(e.date);
           return e
         })
+      }),
+      map(entries => {
+        return [...entries].sort((a:Entry, b:Entry) => {
+          if(a.date > b.date) {
+            return 1;
+          } else if (a.date.getTime() == b.date.getTime()) {
+            return 0;
+          } else {
+            return -1
+          }
+        })
       })
     )
   }
   
   public addEntry(entry: Entry) {
     return this.http.post('/api/entries/', entry)
-    .subscribe()
-  }
-
-  public deleteEntry(entry: Entry) {
-    this.http.delete('/api/entries/' + entry.id)
-    .subscribe()
   }
 
 }
