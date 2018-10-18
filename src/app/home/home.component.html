@@ -1,53 +1,33 @@
 <div class="container">
-  <button class="btn btn-primary my-sm-5" 
-  (click)="toggleBodyFat()"
-  [ngClass]="{'redtext':!showBodyFat}"
-  >Show Body Fat</button>
+  <button (click)="toggleBodyFat()" class="btn btn-primary  my-sm-5" >
+    Show Body Fat
+  </button>
 </div>
-
+  
 <table class="table container">
   <thead>
     <tr>
       <th scope="col">Date</th>
       <th scope="col">Weight</th>
-      <th scope="col" *ngIf="showBodyFat">Body Fat %</th>
+      <th *ngIf="showBodyFat" scope="col">Body Fat %</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let entry of entriesSvc.sortedEntries$ | async">
-      <td style="width:20px;">
-        <span class="deleteIcon" (click)="onDelete(entry)" ><i class="fas fa-trash" ></i></span>
-      </td>
-      <td style="width:20px;">
-        <span class="detailIcon" >
-          <a [routerLink]="['/entries/' + entry.id]">
-            <i class="fas fa-info-circle" ></i>
-          </a>
-        </span>
-      </td>
+    <tr *ngFor="let entry of entriesSvc.sortedEntries">
       <td>{{entry.date | date}}</td>
       <td>{{entry.weight}} lbs</td>
-      <td *ngIf="showBodyFat">{{entry.bodyfat | percent}}</td>
+      <td *ngIf="showBodyFat" >{{entry.bodyfat | percent}}</td>
     </tr>
   </tbody>
 </table>
 
-<div class="contianer row">
+
+<div class="container row">
   <div class="col-sm">
     <hm-new-weight-entry 
-      (create)="createNewEntry($event)"
       [showBodyFat]="showBodyFat"
-      ></hm-new-weight-entry>
+      (create)="createNewEntry($event)"
+    ></hm-new-weight-entry>
   </div>
   <div class="col-sm">&nbsp;</div>
 </div>
-
-<hm-confirm-modal (yes)="deleteEntry()">
-  <div title>
-      <i class="fas fa-trash-alt"></i> Confirm Delete
-  </div>
-  <div body>
-    Are you sure you want to delete the entry from {{ entryToDelete?.date | date}}?
-  </div>
-</hm-confirm-modal>
-  

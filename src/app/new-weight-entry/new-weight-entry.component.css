@@ -1,7 +1,0 @@
-.ng-valid.ng-dirty  {
-  border-left: 5px solid #42A948; /* green */
-}
-
-.ng-dirty.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442; /* red */
-}

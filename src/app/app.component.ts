@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { IdentityService } from './identity.service';
 
 
 @Component({
@@ -9,7 +8,8 @@ import { IdentityService } from './identity.service';
 })
 export class AppComponent {
   
-  constructor(public identitySvc: IdentityService) {}
+
+  constructor() {}
 
   ngOnInit() {
   }
