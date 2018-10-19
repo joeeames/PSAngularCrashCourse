@@ -6,13 +6,19 @@
         <i class="fas fa-weight"></i>
       </li>
       <li class="nav-item">
-        <a class="nav-link">Home</a>
+        <a [routerLink]="['/home']" class="nav-link">Home</a>
       </li>
-    </ul>
+      <li *ngIf="!identitySvc.loggedIn" class="nav-item">
+        <a [routerLink]="['/login']" class="nav-link">Login</a>
+      </li>
+      <li *ngIf="identitySvc.loggedIn" class="nav-item">
+          <a [routerLink]="['/login']" class="nav-link">Logout</a>
+        </li>
+      </ul>
   </div>
 </nav>
 <main>
-    <hm-home></hm-home>
+    <router-outlet></router-outlet>
 </main>
 
 
