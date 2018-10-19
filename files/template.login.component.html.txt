@@ -7,18 +7,17 @@
       <button (click)="logout()" class="btn btn-primary my-1" >Logout</button>
     </div>
       
-
     <!-- Not Logged In -->
     <div *ngIf="!identitySvc.loggedIn" class="card-header text-left">
       <h5><i class="fas fa-sign-in-alt"></i> Login </h5>
     </div>
     <div *ngIf="!identitySvc.loggedIn" class="card-body">
-      <form [formGroup]="loginForm" class="form-inline">
+      <form #loginForm="ngForm" class="form-inline">
         <label for="username" class="sr-only">Username</label>
-        <input type="text" name="username" id="username" class="form-control my-1 mr-sm-2" required formControlName="username"
+        <input type="text" name="username" id="username" class="form-control my-1 mr-sm-2" required [(ngModel)]="identitySvc.username"
           autocomplete="off" placeholder="username" > 
   
-        <button (click)="login();"  class="btn btn-primary my-1" [disabled]="loginForm.invalid">Login</button>
+        <button (click)="login();"  class="btn btn-primary my-1" [disabled]="loginForm.form.invalid">Login</button>
       </form>
     </div>
 
